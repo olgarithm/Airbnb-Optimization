@@ -9,7 +9,6 @@
 		var seeCharts = document.getElementById("seeCharts");
 		var chart = document.getElementById("charts");
 		var childDivs = document.getElementById('charts').getElementsByTagName('div');
-		console.log(seeCharts.innerHTML);
 		if (seeCharts.innerHTML.indexOf("See") > -1) {
 			for (i = 0; i < childDivs.length; i++ ) {
 				 childDivs[i].classList.remove("hidden");
@@ -24,7 +23,7 @@
 		
 	}
 
-	function createCharts(propertyMap) {
+	function createCharts() {
 		var ctx = document.getElementById("firstChart");
 		var myChart = new Chart(ctx, {
 		    type: 'bar',
