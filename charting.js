@@ -127,6 +127,24 @@
 		validateForm();
 		var lat = $("latitude").value;
 		var long = $("longitude").value;
+		var xobj = new XMLHttpRequest();
+		xobj.overrideMimeType("application/json");
+		xobj.open('GET', 'listings.json', true);
+		xobj.onreadystatechange = function () {
+			if (xobj.readyState == 4 && xobj.status == "200") {
+				callback(xobj.responseText);
+			}
+		}
+		xobj.send(null);
+
+		loadJSON(function(response) {
+			jsonResponse = JSON.parse(response);
+			for (var i = 0; i < jsonResponse.length; i++) {
+				if (Math.abs(jsonResponse[i].latitude - lat) < 0.005 && Math.abs(jsonResponse[i].longitude - long) < 0.005) {
+					console.log(jsonResponse[i].price);
+				}
+			}
+		})
 	}
 
 	function estimateBooking() {
