@@ -127,6 +127,31 @@
 		validateForm();
 		var lat = $("latitude").value;
 		var long = $("longitude").value;
+		
+		loadJSON(function(response) {
+			jsonResponse = JSON.parse(response);
+			var moneyEstimate = [];
+			var count = 0;
+			var total = 0;
+			for (var i = 0; i < jsonResponse.length; i++) {
+				if (Math.abs(jsonResponse[i].latitude - lat) < 0.005 && Math.abs(jsonResponse[i].longitude - long) < 0.005) {
+					var moneyString = jsonResponse[i].price;
+					var cost = Number(moneyString.replace(/[^0-9\.-]+/g,""));
+					moneyEstimate.push(cost);
+					total += cost;
+					count++;
+				}
+			}
+			if (count != 0) {
+				var average = cost / count;
+				$("priceEstimage").value = average;
+			} else {
+				alert("Sorry, we couldn't find the proper data for that latitude/longitude.")
+			}
+		})
+	}
+
+	function loadJSON(callback) {
 		var xobj = new XMLHttpRequest();
 		xobj.overrideMimeType("application/json");
 		xobj.open('GET', 'listings.json', true);
@@ -136,15 +161,6 @@
 			}
 		}
 		xobj.send(null);
-
-		loadJSON(function(response) {
-			jsonResponse = JSON.parse(response);
-			for (var i = 0; i < jsonResponse.length; i++) {
-				if (Math.abs(jsonResponse[i].latitude - lat) < 0.005 && Math.abs(jsonResponse[i].longitude - long) < 0.005) {
-					console.log(jsonResponse[i].price);
-				}
-			}
-		})
 	}
 
 	function estimateBooking() {
