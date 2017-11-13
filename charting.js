@@ -160,7 +160,6 @@
 				callback(xobj.responseText);
 			}
 		}
-		xobj.send(null);
 	}
 
 	function estimateBooking() {
