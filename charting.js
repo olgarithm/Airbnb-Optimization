@@ -1,14 +1,20 @@
 (function () {
+	var $ = function(id) { return document.getElementById(id); };
+
 	window.onload = function() {
 		createCharts();
-		var seeCharts = document.getElementById("seeCharts");
+		var seeCharts = $("seeCharts");
+		var price = $("price");
+		var booking = $("booking");
 		seeCharts.onclick = showCharts;
+		price.onclick = estimatePrice;
+		booking.onclick = estimateBooking;
 	}
 
 	function showCharts() {
-		var seeCharts = document.getElementById("seeCharts");
-		var chart = document.getElementById("charts");
-		var childDivs = document.getElementById('charts').getElementsByTagName('div');
+		var seeCharts = $("seeCharts");
+		var chart = $("charts");
+		var childDivs = $('charts').getElementsByTagName('div');
 		if (seeCharts.innerHTML.indexOf("See") > -1) {
 			for (i = 0; i < childDivs.length; i++ ) {
 				 childDivs[i].classList.remove("hidden");
@@ -26,7 +32,7 @@
 	// Creates the three charts that are displayed using charts.js
 	function createCharts() {
 		// Type of Listing bar chart
-		var first = document.getElementById("firstChart");
+		var first = $("firstChart");
 		var myChart = new Chart(first, {
 		    type: 'bar',
 		    data: {
@@ -58,7 +64,7 @@
 		});
 
 		// Cancellation Policy doughnut chart
-		var second = document.getElementById("secondChart");
+		var second = $("secondChart");
 		var myDoughnutChart = new Chart(second, {
     		type: "doughnut",
    			data: {
@@ -80,7 +86,7 @@
 		});
 
 		// Room Type bar chart
-		var third = document.getElementById("thirdChart");
+		var third = $("thirdChart");
 		var thirdChart = new Chart(third, {
 		    type: 'bar',
 		    data: {
@@ -107,5 +113,25 @@
 		        }
 		    }
 		});
+	}
+
+	function validateForm() {
+    	var lat = $("latitude").value;
+    	var long = $("longitude").value
+    	if (lat == "" || long == "") {
+        	alert("Latitude and longitude must be filled out!");
+    	}
+	}
+
+	function estimatePrice() {
+		validateForm();
+		var lat = $("latitude").value;
+		var long = $("longitude").value;
+	}
+
+	function estimateBooking() {
+		validateForm();
+		var lat = $("latitude").value;
+		var long = $("longitude").value;
 	}
 }());
