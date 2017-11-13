@@ -23,9 +23,11 @@
 		
 	}
 
+	// Creates the three charts that are displayed using charts.js
 	function createCharts() {
-		var ctx = document.getElementById("firstChart");
-		var myChart = new Chart(ctx, {
+		// Type of Listing bar chart
+		var first = document.getElementById("firstChart");
+		var myChart = new Chart(first, {
 		    type: 'bar',
 		    data: {
 		        labels: ["Apartment", "House", "Condominum", "Bed & Breakfast", "Boat", "Treehouse"],
@@ -34,14 +36,6 @@
 		            data: [5002, 2489, 547, 92, 6, 3],
 		            backgroundColor: [
 		                'rgba(255, 99, 132, 1)',
-		                'rgba(54, 162, 235, 1)',
-		                'rgba(255, 206, 86, 1)',
-		                'rgba(75, 192, 192, 1)',
-		                'rgba(153, 102, 255, 1)',
-		                'rgba(255, 159, 64, 1)'
-		            ],
-		            borderColor: [
-		                'rgba(255,99,132,1)',
 		                'rgba(54, 162, 235, 1)',
 		                'rgba(255, 206, 86, 1)',
 		                'rgba(75, 192, 192, 1)',
@@ -63,6 +57,7 @@
 		    }
 		});
 
+		// Cancellation Policy doughnut chart
 		var second = document.getElementById("secondChart");
 		var myDoughnutChart = new Chart(second, {
     		type: "doughnut",
@@ -76,12 +71,6 @@
 		                "rgba(255, 206, 86, 1)",
 		                "rgba(75, 192, 192, 1)",
 		            ],
-		            borderColor: [
-		                "rgba(255,99,132,1)",
-		                "rgba(54, 162, 235, 1)",
-		                "rgba(255, 206, 86, 1)",
-		                "rgba(75, 192, 192, 1)",
-		            ],
 		            borderWidth: 1
 		        }]
    			},
@@ -90,29 +79,19 @@
 		    }
 		});
 
+		// Room Type bar chart
 		var third = document.getElementById("thirdChart");
 		var thirdChart = new Chart(third, {
 		    type: 'bar',
 		    data: {
-		        labels: ["Other", "House", "Condominum", "Bed & Breakfast", "Boat", "Treehouse"],
+		        labels: ["Entire Home", "Private Room", "Shared Room"],
 		        datasets: [{
 		            label: '# of Listings',
-		            data: [5002, 2489, 547, 92, 6, 3],
+		            data: [5083, 3437, 186],
 		            backgroundColor: [
-		                'rgba(255, 99, 132, 0.2)',
-		                'rgba(54, 162, 235, 0.2)',
-		                'rgba(255, 206, 86, 0.2)',
-		                'rgba(75, 192, 192, 0.2)',
-		                'rgba(153, 102, 255, 0.2)',
-		                'rgba(255, 159, 64, 0.2)'
-		            ],
-		            borderColor: [
-		                'rgba(255,99,132,1)',
+		                'rgba(255, 99, 132, 1',
 		                'rgba(54, 162, 235, 1)',
 		                'rgba(255, 206, 86, 1)',
-		                'rgba(75, 192, 192, 1)',
-		                'rgba(153, 102, 255, 1)',
-		                'rgba(255, 159, 64, 1)'
 		            ],
 		            borderWidth: 1
 		        }]

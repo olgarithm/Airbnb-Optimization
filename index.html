@@ -13,35 +13,41 @@
 
 <body>
 	<h1>Airbnb Visualizations</h1>
-	<p>Welcome potential Airbnb host! This website will provide you with hosting information in the form of charts and estimates.</p>
+	<p>Welcome, potential Airbnb host! This website will provide you with hosting information in the form of charts and estimates.</p>
+	<h2>Charts</h2>
 	<button id="seeCharts"> See my cool charts! </button>
 	<br />
 	<div id="charts">
 		<div id="chart1" class="hidden">
-			<h2>Type of Listings</h2>
+			<h3>Type of Listings</h3>
 			<canvas id="firstChart" width="400" height="400"></canvas>
 			<p>Apartments and houses are the most popular property types that Airbnb hosts offer, but don't be afraid to be try something new, like a treehouse!</p>
 		</div>
 		<div id="chart2" class="hidden"> 
-			<h2>Cancellation Policy</h2>
+			<h3>Cancellation Policy</h3>
 			<canvas id="secondChart" width="400" height="400"></canvas>
 			<p>Afraid people will cancel on you? Airbnb allows you to choose several different types of cancellation policies!</p>
 		</div>
 		
 		<div id="chart3" class="hidden">
-			<h2>Stuff</h2>
+			<h3>Room Type</h3>
 			<canvas id="thirdChart" width="400" height="400"></canvas>
-			<p>Apartments and houses are the most popular property types that Airbnb hosts offer, but don't be afraid to be try something new, like a treehouse!</p>
+			<p>Want to host but don't want to host your entire property? Only host the part of your property that you want!</p>
 		</div>
 	</div>
 
+	<h2>Estimates</h2>
 	<p>Interested in renting out your property? Here are some statistics based on your latitude and longitute!</p>
 	<form>
-  		<p>Latitude</p>
-  		<input type="text" name="latitude"><br>
-  		<p>Longitude</p>
- 		 <input type="text" name="longitude">
+  		<p>Latitude <input type="text" name="latitude"><br> </p>
+  		<p>Longitude <input type="text" name="longitude"></p>
 	</form>
+	<h4>Price Estimation:</h4>
+	<p> Estimate the weekly average income you can make with Airbnb.</p>
+	<button>Estimate Price</button> <input type="text" name="priceEstimate"><br>
+	<h4>Bookings Optimization:</h4>
+	<p>Estimate the ideal price per night to yield maximum bookings.</p>
+	<button>Estimate Booking</button><input type="text" name="bookingEstimate"><br>
 
 	<footer>
 		<p>Made with <span style="color: #e25555;">&#9829;</span> by <a href="https://github.com/olgatron9000">olgatron9000</a></p>
