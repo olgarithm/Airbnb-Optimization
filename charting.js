@@ -129,7 +129,7 @@
 		var long = $("longitude").value;
 		
 		loadJSON(function(response) {
-			jsonResponse = JSON.parse(response);
+			var jsonResponse = JSON.parse(response);
 			var moneyEstimate = [];
 			var count = 0;
 			var total = 0;
