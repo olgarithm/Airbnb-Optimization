@@ -7,24 +7,34 @@
 	<title>San Franscisco Airbnb</title>
 	<link rel="stylesheet" href="airbnb.css">
 	<link rel="shortcut icon" type="image/png" href="favicon.ico"/>
+	<script src="exceljs.js"></script>
 	<script src="Chart.js"></script>
 	<script src="charting.js"></script>
 </head>
 
 <body>
 	<h1>Airbnb Visualizations</h1>
-	<p>For this project, I decided to ... </p>
+	<p>Welcome potential Airbnb host! This website will provide you with hosting information in the form of charts and estimates.</p>
 	<button id="seeCharts"> See my cool charts! </button>
-	<section id="chart1" class="hidden">
-		<canvas id="myChart" width="200" height="200"></canvas>
-	</section>
-	<section id="chart2" class="hidden"> 
-		<canvas></canvas>
-	</section>
-	
-	<section id="chart3" class="hidden">
-		<canvas></canvas>
-	</section>
+	<br />
+	<div id="charts">
+		<div id="chart1" class="hidden">
+			<h2>Type of Listings</h2>
+			<canvas id="firstChart" width="400" height="400"></canvas>
+			<p>Apartments and houses are the most popular property types that Airbnb hosts offer, but don't be afraid to be try something new, like a treehouse!</p>
+		</div>
+		<div id="chart2" class="hidden"> 
+			<h2>Cancellation Policy</h2>
+			<canvas id="secondChart" width="400" height="400"></canvas>
+			<p>Afraid people will cancel on you? Airbnb allows you to choose several different types of cancellation policies!</p>
+		</div>
+		
+		<div id="chart3" class="hidden">
+			<h2>Stuff</h2>
+			<canvas id="thirdChart" width="400" height="400"></canvas>
+			<p>Apartments and houses are the most popular property types that Airbnb hosts offer, but don't be afraid to be try something new, like a treehouse!</p>
+		</div>
+	</div>
 
 	<p>Interested in renting out your property? Here are some statistics based on your latitude and longitute!</p>
 	<form>

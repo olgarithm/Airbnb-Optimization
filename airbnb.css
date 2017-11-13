@@ -1,4 +1,4 @@
-h1 {
+h1, h2 {
 	font-family: Verdana;
 	text-align: center;
 }
@@ -12,3 +12,19 @@ footer {
 	text-align: center;
 }
 
+p {
+	font-family: Courier;
+}
+
+#charts {
+	display: flex;
+	flex-flow: row;
+	padding: 5px 
+}
+
+#charts > div {
+	border: 2px solid black;
+	border-radius: 20px;
+	margin: 5px;
+	padding: 10px;
+}
