@@ -127,24 +127,31 @@
 		validateForm();
 		var lat = $("latitude").value;
 		var long = $("longitude").value;
-		
 		loadJSON(function(response) {
 			var jsonResponse = JSON.parse(JSON.stringify(response));
 			var moneyEstimate = [];
 			var count = 0;
 			var total = 0;
 			for (var i = 0; i < jsonResponse.length; i++) {
-				if (Math.abs(jsonResponse[i].latitude - lat) < 0.005 && Math.abs(jsonResponse[i].longitude - long) < 0.005) {
-					var moneyString = jsonResponse[i].price;
-					var cost = Number(moneyString.replace(/[^0-9\.-]+/g,""));
+				var listing = jsonResponse[i];
+				if (Math.abs(listing["latitude"] - lat) < 0.0005 && Math.abs(listing["longitude"] - long) < 0.0005) {
+					var moneyString;
+					var cost;
+					if (listing["weekly_price"] == "") {
+						moneyString = listing["price"];
+						cost = Number(moneyString.replace(/[^0-9\.-]+/g,"")) * 7;
+					} else {
+						moneyString = listing["weekly_price"];
+						cost = Number(moneyString.replace(/[^0-9\.-]+/g,""));
+					}
 					moneyEstimate.push(cost);
 					total += cost;
 					count++;
 				}
 			}
 			if (count != 0) {
-				var average = cost / count;
-				$("priceEstimage").value = average;
+				var average = total / count;
+				$("priceEstimate").value = average;
 			} else {
 				alert("Sorry, we couldn't find the proper data for that latitude/longitude.")
 			}
